@@ -10,3 +10,4 @@ rok-data-sqlc    = { path = "rok-data/crates/rok-data-sqlc" }
 rok-data-cli     = { path = "rok-data/crates/rok-cli" }
 rok-tools        = { path = "rok-tools/crates/rok-tools" }
 rok-tools-cli    = { path = "rok-tools/crates/rok-tools-cli" }
+rok-templates    = { path = "rok-templates" }
