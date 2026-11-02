@@ -1,0 +1,11 @@
+/*
+!/.gitignore
+!/README.md
+!/AGENTS.md
+!/CLAUDE.md
+!/GLOSSARY-MAP.md
+!/repos.toml
+!/.cargo/
+!/.github/
+!/docs/
+!/scripts/

@@ -1,0 +1,5 @@
+# Member repos, cloned side by side into this folder. name = "clone URL"
+[repos]
+rok-data = "https://github.com/ateeq1999/rok-data.git"
+rok-tools = "https://github.com/ateeq1999/rok-tools.git"
+rok-ui = "https://github.com/ateeq1999/rok-ui.git"

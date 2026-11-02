@@ -1,0 +1,12 @@
+# Build a member against the other members' checkouts instead of crates.io:
+#   cargo build --config ..\.cargo\patch-local.toml
+# Paths are relative to this folder's parent (the workspace root).
+[patch.crates-io]
+rok-data-core    = { path = "rok-data/crates/rok-data-core" }
+rok-data-macros  = { path = "rok-data/crates/rok-data-macros" }
+rok-data         = { path = "rok-data/crates/rok-data" }
+rok-data-codegen = { path = "rok-data/crates/rok-data-codegen" }
+rok-data-sqlc    = { path = "rok-data/crates/rok-data-sqlc" }
+rok-data-cli     = { path = "rok-data/crates/rok-cli" }
+rok-tools        = { path = "rok-tools/crates/rok-tools" }
+rok-tools-cli    = { path = "rok-tools/crates/rok-tools-cli" }
