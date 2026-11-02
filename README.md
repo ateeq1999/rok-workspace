@@ -9,9 +9,13 @@ on its own.
 | [rok-data](https://github.com/ateeq1999/rok-data) | PostgreSQL runtime, codegen, the sqlc engine, and its CLI |
 | [rok-tools](https://github.com/ateeq1999/rok-tools) | developer Tools as a library and a CLI |
 | [rok-ui](https://github.com/ateeq1999/rok-ui) | shadcn-style components for GPUI desktop apps |
+| [rok-templates](https://github.com/ateeq1999/rok-templates) | the starter templates and their catalog |
+| [rok-v2](https://github.com/ateeq1999/rok-v2) | the `rok` command (crate `rok-cli`) |
 
-`rok-templates` and `rok-v2` (the `rok` command) join as the split in
-[docs/plan.md](docs/plan.md) lands.
+The split that made them is recorded in [docs/plan.md](docs/plan.md).
+`.github/workflows/combined.yml` builds `rok-v2` against every member's
+`main` nightly (and on demand), so a break across repos shows before a
+release.
 
 ## Get every member
 

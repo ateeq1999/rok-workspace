@@ -48,8 +48,9 @@ is carried with `git subtree split`, not `git filter-repo`; crates.io:
 | 3 Binary name | done: rok-data#1 (binary `rok-data`; help shows the name it was called by) |
 | 4 rok-templates | done: rok-templates#1, #2; rok-data#2, #3, #4, #5, #6; **rok-templates 0.6.0** and **rok-data 0.6.1** on crates.io |
 | 5 rok-tools | done: rok-tools#2 (the `features` job's script had no executable bit); **rok-tools** and **rok-tools-cli 0.1.0** on crates.io |
-| 6 rok-v2 | rok-v2#1 open (`rok` 0.7.0); then the `v0.7.0` tag |
-| 7–8 | not started |
+| 6 rok-v2 | done: rok-v2#1; **rok-cli 0.7.0** on crates.io and released (six targets, installers verified); 6e (rok-data drops its binaries and `rok tools` wiring) in review |
+| 7 Combined build | `.github/workflows/combined.yml` added; first run on demand or tonight |
+| 8 CLI split | not started |
 
 What step 4 taught, which the steps below assume:
 

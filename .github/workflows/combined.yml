@@ -1,0 +1,30 @@
+name: Combined build
+
+# Builds and tests rok-v2 against every member repo's main, through
+# .cargo/patch-local.toml: catches a break across repos before a release.
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  combined:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Clone the member repos
+        run: |
+          grep -E '^[A-Za-z0-9_.-]+ *= *"' repos.toml | while IFS='=' read -r name url; do
+            name=$(echo "$name" | xargs); url=$(echo "$url" | tr -d '" ')
+            git clone --depth 1 "$url" "$name"
+          done
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: rok-v2
+      - name: Test rok-v2 against every member's main
+        working-directory: rok-v2
+        run: cargo test --all-targets --config ../.cargo/patch-local.toml
