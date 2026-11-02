@@ -38,6 +38,41 @@ is carried with `git subtree split`, not `git filter-repo`; crates.io:
 `rok-db` are ours, `rok-tools`, `rok-tools-cli`, `rok-db-cli`,
 `rok-gen-cli` are free.
 
+## Progress (2026-11-02)
+
+| Step | State |
+| --- | --- |
+| 0 Backup | done: 9 bundles verified in `D:\DEV\_archive`, `t09-scratch.zip`, rok's `.env` copied |
+| 1 Archive + delete | done: rok, rok-db, rok-sqlc, rok-ui-hooks archived; 7 local folders removed |
+| 2 Meta-repo | done: github.com/ateeq1999/rok-workspace |
+| 3 Binary name | done: rok-data#1 (binary `rok-data`; help shows the name it was called by) |
+| 4 rok-templates | done: rok-templates#1, #2; rok-data#2, #3, #4, #5, #6; **rok-templates 0.6.0** and **rok-data 0.6.1** on crates.io |
+| 5 rok-tools | waiting on rok-tools#2 (the `features` job's script had no executable bit) |
+| 6–8 | not started |
+
+What step 4 taught, which the steps below assume:
+
+- **Tag the merge commit, after the merge.** Twice a tag landed on the
+  commit before the release PR; the workflows' version checks refused
+  it and nothing published. Check first:
+  `git show vX.Y.Z:Cargo.toml | Select-String '^version'`.
+- **A crate's dependents publish after it.** crates.io's rok-templates
+  0.5.0 predated the catalog rok-data's engine calls, so rok-templates
+  0.6.0 published first, from its own repo, and rok-data then switched
+  to it.
+- **The template gates build their generator from rok-data's git tag in
+  `rok-data.pin`, patched to the local templates**, not from
+  `cargo install`: `init` copies the templates embedded in the binary,
+  so a stock install would test the published copies (rok-templates'
+  AGENTS.md has the commands).
+- **rok-data 0.6.0 is partial** (macros, core, facade, codegen): its
+  engine package lacked two embedded files (rok-data#4 adds a test for
+  that). **0.6.1 is the first complete 0.6 release.**
+- **A release that stops on a runner** (macOS capacity cancelled a
+  build twice) is finished by running `release.yml` by hand with the
+  existing tag; published crates are skipped. rok-data#6 builds both
+  macOS binaries on one runner.
+
 ---
 
 ## Step 0 — Back up everything first
@@ -384,8 +419,8 @@ gh run watch (gh run list --workflow release.yml --limit 1 --json databaseId -q 
 ### Verify step 4
 
 ```powershell
-cargo install rok-data-cli --version =0.6.0 --locked
-rok-data --version                             # rok-data 0.6.0
+cargo install rok-data-cli --version =0.6.1 --locked
+rok-data --version                             # rok-data 0.6.1
 gh workflow run ci.yml --repo "$Gh/rok-templates"; gh run watch --repo "$Gh/rok-templates" (gh run list --repo "$Gh/rok-templates" --limit 1 --json databaseId -q '.[0].databaseId')   # gates green against the pin
 (git -C "$Root\rok-data" ls-files).Count       # ≈ 1440, down from 2718
 ```
