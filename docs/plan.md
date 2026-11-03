@@ -50,7 +50,7 @@ is carried with `git subtree split`, not `git filter-repo`; crates.io:
 | 5 rok-tools | done: rok-tools#2 (the `features` job's script had no executable bit); **rok-tools** and **rok-tools-cli 0.1.0** on crates.io |
 | 6 rok-v2 | done: rok-v2#1; **rok-cli 0.7.0** on crates.io and released (six targets, installers verified); 6e done: rok-data#7 (rok-data drops its binaries, installers and `rok tools` wiring) |
 | 7 Combined build | `.github/workflows/combined.yml` added; first run on demand or tonight |
-| 8 CLI split | not started |
+| 8 CLI split | in review: one crate, two more binaries (`rok-db`, `rok-gen`) instead of two crates, see the note under step 8 |
 
 What step 4 taught, which the steps below assume:
 
@@ -573,6 +573,14 @@ gh run watch --repo "$Gh/rok-workspace" (gh run list --repo "$Gh/rok-workspace" 
 ## Step 8 — Phase 2: split rok-data's CLI into `rok-db` and `rok-gen`
 
 Start only after step 7 is green for a few nights.
+
+**As built (2026-11-03): one crate, three binaries.** The two halves share
+`config`, `context`, `keychain` and `output`, so two crates would have
+needed a third shared one: three new crate names for halves that release
+together anyway. `rok-data-cli` gains the binaries `rok-db` and `rok-gen`
+(`run_group` with a `Group`); `rok-data` keeps every command, and rok-v2
+needs no change. ADR 0032 carries the amendment. A4 and V2 below are the
+plan as first written.
 
 **Agent task A4** (in `rok-data`, branch `toolchain-split/cli-split`):
 
