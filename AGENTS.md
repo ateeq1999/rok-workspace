@@ -14,6 +14,7 @@ it. Commits made here never touch a member (`.gitignore` excludes them).
 | `rok-ui/` | GPUI component system | [rok-ui/AGENTS.md](rok-ui/AGENTS.md) |
 | `rok-templates/` | the actix, axum and monorepo templates, their catalog, and their gates | [rok-templates/AGENTS.md](rok-templates/AGENTS.md) |
 | `rok-v2/` | the `rok` binary (crate `rok-cli`): routing, help, the PATH fallback, binary releases and installers | [rok-v2/AGENTS.md](rok-v2/AGENTS.md) |
+| `rok-docs/` | the toolchain's documentation site (TanStack Start, on Vercel), mirroring the members | [rok-docs/AGENTS.md](rok-docs/AGENTS.md) |
 
 ## Where a change belongs
 
@@ -24,6 +25,7 @@ it. Commits made here never touch a member (`.gitignore` excludes them).
 | A Tool or `rok tools …` | `rok-tools` |
 | A template, an Integration, a template gate | `rok-templates` |
 | Routing, `rok --help`, the PATH fallback, install scripts | `rok-v2` |
+| A documentation page, the site's design | `rok-docs` (its source first, in the member it documents) |
 | The member list, the patch file, cross-member CI, toolchain ADRs | this repo |
 
 A change that spans members is one PR per member, merged in dependency

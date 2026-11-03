@@ -11,6 +11,7 @@ on its own.
 | [rok-ui](https://github.com/ateeq1999/rok-ui) | shadcn-style components for GPUI desktop apps |
 | [rok-templates](https://github.com/ateeq1999/rok-templates) | the starter templates and their catalog |
 | [rok-v2](https://github.com/ateeq1999/rok-v2) | the `rok` command (crate `rok-cli`) |
+| [rok-docs](https://github.com/ateeq1999/rok-docs) | the toolchain's documentation site |
 
 The split that made them is recorded in [docs/plan.md](docs/plan.md).
 `.github/workflows/combined.yml` builds `rok-v2` against every member's
