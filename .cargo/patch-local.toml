@@ -11,3 +11,8 @@ rok-data-cli     = { path = "rok-data/crates/rok-cli" }
 rok-tools        = { path = "rok-tools/crates/rok-tools" }
 rok-tools-cli    = { path = "rok-tools/crates/rok-tools-cli" }
 rok-templates    = { path = "rok-templates" }
+
+# rok-dev-cli is a git dependency of rok-v2 until its first release (rok-dev
+# ticket 11); then it moves to [patch.crates-io] above.
+[patch."https://github.com/ateeq1999/rok-dev"]
+rok-dev-cli      = { path = "rok-dev/crates/rok-dev-cli" }

@@ -11,6 +11,7 @@ it. Commits made here never touch a member (`.gitignore` excludes them).
 | --- | --- | --- |
 | `rok-data/` | runtime (`rok-data-core`, `-macros`, facade), `rok-data-codegen`, the sqlc engine `rok-data-sqlc`, the CLI `rok-data-cli` | [rok-data/AGENTS.md](rok-data/AGENTS.md) |
 | `rok-tools/` | the Tools library `rok-tools` and `rok-tools-cli` | [rok-tools/README.md](rok-tools/README.md), [rok-tools/GLOSSARY.md](rok-tools/GLOSSARY.md) |
+| `rok-dev/` | `rok-dev-cli` and the `rok-dev` binary: running a project's stack (`rok dev`, `rok run`, `rok doctor`, `rok port`; rok-data's workspace ADR 0034) | [rok-dev/AGENTS.md](rok-dev/AGENTS.md), [rok-dev/GLOSSARY.md](rok-dev/GLOSSARY.md) |
 | `rok-ui/` | GPUI component system | [rok-ui/AGENTS.md](rok-ui/AGENTS.md) |
 | `rok-templates/` | the actix, axum and monorepo templates, their catalog, and their gates | [rok-templates/AGENTS.md](rok-templates/AGENTS.md) |
 | `rok-v2/` | the `rok` binary (crate `rok-cli`): routing, help, the PATH fallback, binary releases and installers | [rok-v2/AGENTS.md](rok-v2/AGENTS.md) |
@@ -23,13 +24,14 @@ it. Commits made here never touch a member (`.gitignore` excludes them).
 | Query builder, models, migrations, the engine's generated code | `rok-data` |
 | A `rok db`, `rok migrate`, `rok gen`, `rok sqlc` … command | `rok-data` (the CLI that owns the word) |
 | A Tool or `rok tools …` | `rok-tools` |
+| `rok dev`, `rok run`, `rok doctor`, `rok port`, a Runnable | `rok-dev` |
 | A template, an Integration, a template gate | `rok-templates` |
 | Routing, `rok --help`, the PATH fallback, install scripts | `rok-v2` |
 | A documentation page, the site's design | `rok-docs` (its source first, in the member it documents) |
 | The member list, the patch file, cross-member CI, toolchain ADRs | this repo |
 
 A change that spans members is one PR per member, merged in dependency
-order (rok-data and rok-tools, then rok-templates, then rok-v2).
+order (rok-data, rok-tools and rok-dev, then rok-templates, then rok-v2).
 
 ## Building across members
 

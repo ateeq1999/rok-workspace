@@ -21,8 +21,9 @@ _Avoid_: plugin, sub-CLI, extension
 
 - [rok-data](rok-data/GLOSSARY-MAP.md): the data pipeline, its engine and its templates (its own map lists three contexts)
 - [rok-tools](rok-tools/GLOSSARY.md): the Tools and the Payload Runner
+- [rok-dev](rok-dev/GLOSSARY.md): Runnables, and running a project's stack
 
 ## Relationships
 
-- **rok-v2 → rok-data, rok-tools**: `rok` links their Subcommand CLIs and forwards each one's words verbatim; the vocabulary of a command is its CLI's.
+- **rok-v2 → rok-data, rok-tools, rok-dev**: `rok` links their Subcommand CLIs and forwards each one's words verbatim; the vocabulary of a command is its CLI's.
 - **rok-templates → rok-data**: the engine's `init` reads the templates from the `rok-templates` crate; the templates' gates generate with a pinned `rok-data-cli`.

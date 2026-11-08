@@ -8,6 +8,7 @@ on its own.
 | --- | --- |
 | [rok-data](https://github.com/ateeq1999/rok-data) | PostgreSQL runtime, codegen, the sqlc engine, and its CLI |
 | [rok-tools](https://github.com/ateeq1999/rok-tools) | developer Tools as a library and a CLI |
+| [rok-dev](https://github.com/ateeq1999/rok-dev) | runs a project's stack: `rok dev`, `rok run`, `rok doctor`, `rok port` |
 | [rok-ui](https://github.com/ateeq1999/rok-ui) | shadcn-style components for GPUI desktop apps |
 | [rok-templates](https://github.com/ateeq1999/rok-templates) | the starter templates and their catalog |
 | [rok-v2](https://github.com/ateeq1999/rok-v2) | the `rok` command (crate `rok-cli`) |
